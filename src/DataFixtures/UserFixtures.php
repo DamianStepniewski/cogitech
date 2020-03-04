@@ -11,13 +11,21 @@ class UserFixtures extends Fixture
 {
     private $passwordEncoder;
 
-     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    /**
+     * UserFixtures constructor.
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     */
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
      {
          $this->passwordEncoder = $passwordEncoder;
      }
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
+        // Generate a test user
         $user = new User();
         $user
             ->setUsername("test")
